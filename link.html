@@ -1,0 +1,155 @@
+﻿<html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>链接1</title>
+<style type="text/css">
+body{ margin:0 ; padding:0; font-size:20px; font-weight:bold}
+div{ text-align:center; line-height:50px}
+.top{ height:50px;background:#9CF}
+.main{ width:1300px;height:600px; margin:0 auto;padding-top:20px;
+background-image:url(image/b.jpg);}
+.left{ width:220px; height:400px; background:#ccc; float:left;
+background-color:rgb(204,238,255); 
+filter:alpha(opacity=50);   
+background: rgba(204,238,255,0.5); /*设置背景透明度*/
+position:static;
+}
+.left a{position:relative;}/*背景透明，a标签不透明*/
+.right{ width:1000px; height:600px;background:#FCC;  float:right;margin-left:50px;
+filter:alpha(opacity=50);   
+background: rgba(204,238,255,0.8); /*设置背景透明度*/
+position:static;
+}
+.right dl{position:relative;padding-left:50px;}
+.footer{ height:50px; background:#9cf; width:100%;}
+ul{ list-style:none;}
+a{color:#333;text-decoration:none}
+.nav{list-style:none; height:30px;  margin-top:20px; padding-left:50px;}
+.nav li{float:left}
+a{display:block; height:60px;text-align:center; line-height:50px; width:150px; margin-left:1px;}
+ a:hover{background-color:#660066; color:#fff; margin-top:-10px;/*向上拉伸*/line-height:50px;}
+.right dd{
+color:gray;
+width:25%;
+height:60px;
+float:left;
+margin:15px 0;
+}
+</style>
+<script src="jquery.js"></script>
+<script>
+window.onload=function(){
+    var aA=document.getElementsByTagName('a');
+	for(var i=0; i<aA.length; i++){
+		aA[i].onmouseover=function(){
+			var This=this;
+			clearInterval(This.time);
+			This.time=setInterval(function(){
+					This.style.width=This.offsetWidth+8+"px";
+					if(This.offsetWidth>=160)
+					clearInterval(This.time);
+				},30)
+		}
+		aA[i].onmouseout=function(){
+				clearInterval(this.time);
+				var This=this;
+				this.time=setInterval(function()
+                {
+					This.style.width=This.offsetWidth-8+"px";
+					if(This.offsetWidth<=150)
+                    {
+						This.style.width='150px';
+						clearInterval(This.time);
+                    }
+				},30)
+		}
+	}
+}
+$(function(){
+	$("dd a").each(function()
+	{
+		$(this).css("background-color",getRandomColor());
+	});
+})
+function getRandomColor()
+{
+	var c='#';
+	var cArray=['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'];
+	for(var i=0;i<6;i++)
+	{
+		var cIndex=Math.round(Math.random()*15);
+		c+=cArray[cIndex];
+	}
+	return c;
+}
+</script>
+</head>
+<body>
+<div class="top"></div>
+<div class="main">
+<div class="left">
+<ul class="nav">
+<li><a href="demo.html">关于我们&nbsp;&nbsp;>></a></li>
+<li><a href="#">团队介绍&nbsp;&nbsp;>></a></li>
+<li><a href="#">人才招聘&nbsp;&nbsp;>></a></li>
+<li><a href="#">联系我们&nbsp;&nbsp;>></a></li>
+<li><a href="#">意见反馈&nbsp;&nbsp;>></a></li>
+<li><a href="链接1.html">友情链接&nbsp;&nbsp;>></a></li>
+</ul>
+</div>
+<div class="right">
+<dl>
+<dd>
+<a href="http://www.imooc.com/" target="_blank">慕课网</a>
+</dd>
+<dd>
+<a href="http://www.oschina.net/" target="_blank">开源中国</a>
+</dd>
+<dd>
+<a href="http://www.runoob.com/" target="_blank">菜鸟教程</a>
+</dd>
+<dd>
+<a href="https://github.com/" target="_blank">GitHub</a>
+</dd>
+<dd>
+<a href="http://learning.sohu.com/" target="_blank">搜狐教育</a>
+</dd>
+<dd>
+<a href="https://www.qcloud.com/" target="_blank">腾讯云</a>
+</dd>
+<dd>
+<a href="http://weibo.com/" target="_blank">新浪微博</a>
+</dd>
+<dd>
+<a href="https://www.baidu.com/" target="_blank">百度一下</a>
+</dd>
+<dd>
+<a href="http://www.docin.com/" target="_blank">豆丁网</a>
+</dd>
+<dd>
+<a href="http://www.php-z.com/" target="_blank">PHP站中文网</a>
+</dd>
+<dd>
+<a href="http://www.js-css.cn/" target="_blank">JS代码网</a>
+</dd>
+<dd>
+<a href="http://www.lagou.com/" target="_blank">拉勾网</a>
+</dd>
+<dd>
+<a href="http://www.zhihu.com/" target="_blank">知乎知乎</a>
+</dd>
+<dd>
+<a href="http://www.wqdian.com/" target="_blank">微企点</a>
+</dd>
+<dd>
+<a href="http://gold.xitu.io/" target="_blank">稀土掘金</a>
+</dd>
+<dd>
+<a href="http://open.163.com/" target="_blank">网易公开课</a>
+</dd>
+</dl>
+</div>
+</div>
+<div class="footer"></div>
+</body>
+</html>
